@@ -1,0 +1,146 @@
+[
+  {
+    "id": "1",
+    "title": "Servicios de Telecomunicaciones para HUAWEI",
+    "image": "/images/projects/all.webp",
+    "description": "Prestación de servicios especializados de telecomunicaciones para HUAWEI, ejecutando proyectos para operadores líderes como Claro, Telefónica y Entel, bajo estrictos estándares de calidad, seguridad y cumplimiento técnico.",
+    "details": {
+      "scope": "Ejecución integral de trabajos de instalación, integración, energización y puesta en servicio de infraestructura de telecomunicaciones en redes móviles y fijas, abarcando tecnologías IP, FTTH, 4G y 5G.",
+      "technologies": [
+        "Equipos HUAWEI OLT y routers multiservicio",
+        "Instalación de RRU y AAU (4G / 5G)",
+        "Gabinetes indoor y outdoor HUAWEI",
+        "Redes IP y proyectos FTTH",
+        "Equipos de transmisión y acceso"
+      ],
+      "benefits": [
+        "Ejecución conforme a estándares HUAWEI y operadores",
+        "Alta confiabilidad en la puesta en servicio",
+        "Reducción de tiempos de activación",
+        "Personal técnico certificado",
+        "Soporte a múltiples operadores"
+      ],
+      "duration": "Servicios continuos bajo contratos marco y proyectos específicos"
+    }
+  },
+  {
+    "id": "2",
+    "title": "Instalación y Energización de Equipos de Telecomunicaciones",
+    "image": "/images/projects/all.webp",
+    "description": "Instalación física, aterrizaje, energización y validación operativa de equipos de telecomunicaciones HUAWEI en sites de operadores móviles y fijos.",
+    "details": {
+      "scope": "Instalación de equipos activos y pasivos, aterrizaje eléctrico, energización controlada y mediciones para garantizar el correcto funcionamiento de la infraestructura.",
+      "technologies": [
+        "Aterrizaje de equipos HUAWEI",
+        "Energizado AC/DC",
+        "Mediciones de potencia",
+        "Sistemas de puesta a tierra",
+        "Protecciones eléctricas"
+      ],
+      "benefits": [
+        "Mayor vida útil de los equipos",
+        "Cumplimiento de normativas eléctricas",
+        "Reducción de riesgos operativos",
+        "Validación técnica post-instalación",
+        "Documentación técnica completa"
+      ],
+      "duration": "Según alcance del proyecto y cantidad de sites"
+    }
+  },
+  {
+    "id": "3",
+    "title": "Servicios FTTH e Infraestructura IP",
+    "image": "/images/projects/all.webp",
+    "description": "Ejecución de proyectos de fibra óptica y redes IP, incluyendo instalación, cableado, ordenamiento y activación de servicios para operadores de telecomunicaciones.",
+    "details": {
+      "scope": "Instalación y adecuación de infraestructura FTTH e IP en planta interna, garantizando orden, etiquetado y calidad óptica conforme a estándares internacionales.",
+      "technologies": [
+        "Cableado de fibra óptica en planta interna",
+        "Instalación de ODF",
+        "Peinado y etiquetado de FO",
+        "Limpieza y medición de enlaces",
+        "Levantamiento y activación de servicios"
+      ],
+      "benefits": [
+        "Optimización del rendimiento de la red",
+        "Reducción de atenuaciones y fallas",
+        "Facilidad de mantenimiento futuro",
+        "Activaciones rápidas y confiables",
+        "Cumplimiento de estándares FTTH"
+      ],
+      "duration": "Variable según el tamaño del despliegue"
+    }
+  },
+  {
+    "id": "4",
+    "title": "Instalación de RRU, AAU y Migraciones Tecnológicas",
+    "image": "/images/projects/all.webp",
+    "description": "Instalación, migración e integración de equipos de radiofrecuencia para redes móviles 4G y 5G, asegurando continuidad del servicio durante los trabajos.",
+    "details": {
+      "scope": "Servicios de instalación de RRU y AAU, migraciones tecnológicas, integraciones y desmontajes controlados de equipos obsoletos.",
+      "technologies": [
+        "RRU y AAU HUAWEI (4G / 5G)",
+        "Migraciones tecnológicas",
+        "Integraciones de red",
+        "Desmontaje de equipos y gabinetes",
+        "Pruebas post-integración"
+      ],
+      "benefits": [
+        "Modernización de la red móvil",
+        "Mejora en capacidad y cobertura",
+        "Minimización de afectaciones al servicio",
+        "Cumplimiento de cronogramas",
+        "Soporte a despliegues 5G"
+      ],
+      "duration": "De días a semanas por sitio"
+    }
+  },
+  {
+    "id": "5",
+    "title": "Servicios TSS y Soporte en Sitios",
+    "image": "/images/projects/all.webp",
+    "description": "Prestación de servicios TSS (Technical Support Services) para operadores y vendors, brindando soporte técnico especializado en campo.",
+    "details": {
+      "scope": "Atención de incidencias, soporte técnico en sitio, trabajos correctivos y preventivos sobre infraestructura de telecomunicaciones.",
+      "technologies": [
+        "Soporte técnico en campo",
+        "Mediciones de potencia",
+        "Validación de servicios",
+        "Mantenimiento de equipos",
+        "Gestión de incidencias"
+      ],
+      "benefits": [
+        "Respuesta rápida ante fallas",
+        "Mayor disponibilidad del servicio",
+        "Soporte especializado",
+        "Reducción de tiempos de caída",
+        "Continuidad operativa"
+      ],
+      "duration": "Servicios continuos según contrato"
+    }
+  },
+  {
+    "id": "6",
+    "title": "Instalación de Bandejas, Ordenamiento y Desmontajes",
+    "image": "/images/projects/all.webp",
+    "description": "Servicios de ordenamiento, instalación de bandejas, adecuación de infraestructura y desmontaje de equipos en sites de telecomunicaciones.",
+    "details": {
+      "scope": "Instalación de bandejas GPS, ordenamiento de cableado, desmontaje de equipos y gabinetes, garantizando un site limpio, ordenado y operativo.",
+      "technologies": [
+        "Instalación de bandejas GPS",
+        "Ordenamiento y peinado de FO",
+        "Etiquetado de cableado",
+        "Desmontaje de equipos",
+        "Adecuación de sites"
+      ],
+      "benefits": [
+        "Mejora en la gestión del site",
+        "Facilidad para futuras ampliaciones",
+        "Reducción de riesgos operativos",
+        "Cumplimiento de estándares de orden",
+        "Mayor seguridad en instalaciones"
+      ],
+      "duration": "Según alcance y condiciones del site"
+    }
+  }
+]

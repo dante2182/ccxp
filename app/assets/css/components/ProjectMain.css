@@ -1,0 +1,90 @@
+/* ===== CONTENEDOR ===== */
+.container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 4rem 1rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-top: 1rem;
+  background-color: #1a3a5f;
+}
+
+/* ===== GRID ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+/* ===== CARD ===== */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ===== IMAGEN ===== */
+.image-wrapper {
+  height: 220px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+/* ===== CONTENIDO ===== */
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h2 {
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: #1a3a5f;
+  margin-bottom: 0.6rem;
+}
+
+.cta {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5c7ea5;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 768px) {
+  .image-wrapper {
+    height: 240px;
+  }
+
+  .card-content h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 5rem 1rem;
+  }
+}
