@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#061429" />
+    <meta
+      name="description"
+      content="CCIP Telecomunicaciones e Ingeniería: diseño, instalación y mantenimiento de redes, telecomunicaciones, seguridad electrónica y energía eléctrica en Arequipa y todo el Perú."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..750&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/logo_ccip.ico"
+    />
+    <title>CCIP · Redes y Telecomunicaciones | Ingeniería que conecta el Perú</title>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("ccip-theme");
+          var theme = stored === "light" || stored === "dark" ? stored : "dark";
+          document.documentElement.classList.toggle("dark", theme === "dark");
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

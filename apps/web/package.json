@@ -1,0 +1,33 @@
+{
+  "name": "@ccxp/web",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@ccxp/config": "workspace:*",
+    "@nuxt/eslint": "1.17.0",
+    "@types/node": "24.19.4",
+    "@types/nodemailer": "8.0.2",
+    "eslint": "10.16.0",
+    "nuxt": "4.7.0",
+    "prettier": "3.10.1",
+    "typescript": "5.9.3",
+    "vue-tsc": "3.3.14"
+  },
+  "dependencies": {
+    "@ccxp/contracts": "workspace:*",
+    "nodemailer": "10.6.1"
+  }
+}

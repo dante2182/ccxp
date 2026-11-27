@@ -1,4 +1,11 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
 saveExact: true
+
+overrides:
+  minimatch: 11.0.1
 
 allowBuilds:
   '@parcel/watcher': true
@@ -10,3 +17,6 @@ allowBuilds:
 
 minimumReleaseAgeExclude:
   - nodemailer@10.6.1
+  - '@eslint/config-array@0.23.7'
+  - eslint-config-prettier@10.1.9
+  - eslint@10.16.0

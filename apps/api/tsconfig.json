@@ -1,0 +1,10 @@
+{
+  "extends": "@ccxp/config/tsconfig/node.json",
+  "include": [
+    "nitro.config.ts",
+    "middleware/**/*.ts",
+    "plugins/**/*.ts",
+    "src/**/*.ts",
+    "routes/**/*.ts"
+  ]
+}

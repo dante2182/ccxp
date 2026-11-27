@@ -1,0 +1,39 @@
+{
+  "Lima": {
+    "Lima": [
+      "Miraflores",
+      "San Isidro",
+      "Surco",
+      "San Borja",
+      "La Molina",
+      "Cercado de Lima",
+      "Jesús María",
+      "Lince",
+      "Magdalena",
+      "San Miguel"
+    ],
+    "Callao": ["Callao", "Bellavista", "Ventanilla"]
+  },
+  "Arequipa": {
+    "Arequipa": [
+      "Cercado",
+      "Cayma",
+      "Yanahuara",
+      "Cerro Colorado",
+      "Paucarpata",
+      "José Luis Bustamante y Rivero"
+    ],
+    "Camaná": ["Camaná", "Quilca"]
+  },
+
+  "Lambayeque": {
+    "Chiclayo": ["Chiclayo", "José Leonardo Ortiz", "La Victoria"]
+  },
+  "Piura": {
+    "Piura": ["Piura", "Castilla", "Veintiséis de Octubre"],
+    "Sullana": ["Sullana", "Bellavista"]
+  },
+  "Cusco": {
+    "Cusco": ["Cusco", "Wanchaq", "Santiago"]
+  }
+}

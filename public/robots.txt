@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://ccip-page-nuxt.vercel.app/sitemap.xml

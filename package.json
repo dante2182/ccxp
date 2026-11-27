@@ -1,35 +1,30 @@
 {
-    "name": "ccip",
-    "private": true,
-    "type": "module",
-    "packageManager": "pnpm@12.15.0",
-    "engines": {
-        "node": ">=24"
-    },
-    "scripts": {
-        "build": "nuxt build",
-        "dev": "nuxt dev",
-        "generate": "nuxt generate",
-        "preview": "nuxt preview",
-        "postinstall": "nuxt prepare",
-        "typecheck": "nuxt typecheck",
-        "lint": "eslint .",
-        "lint:fix": "eslint . --fix",
-        "format": "prettier --write .",
-        "format:check": "prettier --check ."
-    },
-    "devDependencies": {
-        "@nuxt/eslint": "1.17.0",
-        "@types/node": "24.19.2",
-        "@types/nodemailer": "8.0.2",
-        "eslint": "10.15.0",
-        "eslint-config-prettier": "10.1.8",
-        "nuxt": "4.6.4",
-        "prettier": "3.10.1",
-        "typescript": "5.9.3",
-        "vue-tsc": "3.3.14"
-    },
-    "dependencies": {
-        "nodemailer": "10.6.1"
-    }
+  "name": "ccxp",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.23.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @ccxp/web dev",
+    "build": "pnpm -r build",
+    "generate": "pnpm --filter @ccxp/web generate",
+    "preview": "pnpm --filter @ccxp/web preview",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "test": "pnpm -r test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "deploy:up": "docker compose -f deploy/docker-compose.yml up -d --build",
+    "deploy:down": "docker compose -f deploy/docker-compose.yml down",
+    "deploy:restart": "docker compose -f deploy/docker-compose.yml restart",
+    "deploy:logs": "docker compose -f deploy/docker-compose.yml logs -f",
+    "deploy:ps": "docker compose -f deploy/docker-compose.yml ps"
+  },
+  "devDependencies": {
+    "@ccxp/config": "workspace:*",
+    "prettier": "3.10.1"
+  }
 }

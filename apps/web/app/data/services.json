@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "telecomunicaciones",
+    "title": "TELECOMUNICACIONES",
+    "description": "La telecomunicación es hoy un pilar clave del desarrollo social y económico",
+    "longDescription": "La telecomunicación es esencial para el desarrollo social, económico y empresarial.",
+    "image": "/images/services/tele.webp",
+    "heroImage": "/images/services/tele.webp",
+    "subServices": [
+      {
+        "title": "FIBRA OPTICA",
+        "description": "Ingeniería, construcción, instalación y mantenimiento",
+        "image": "/images/services/tele12.webp"
+      },
+      {
+        "title": "ANTENAS MOVILES (4G,5G)",
+        "description": "Instalación, mantenimiento, auditorías y optimización",
+        "image": "/images/services/tele11.webp"
+      },
+      {
+        "title": "TORRES E INFRAESTRUCTURA DE COMUNICACIONES",
+        "description": "Instalación, mantenimiento y desmontaje",
+        "image": "/images/services/tele13.webp"
+      }
+    ]
+  },
+  {
+    "slug": "redes-telematica",
+    "title": "REDES Y TELEMATICA",
+    "description": "Las redes informáticas transforman la comunicación entre empresas y personas.",
+    "longDescription": "Movilidad, banda ancha y seguridad impulsan la evolución digital.",
+    "image": "/images/services/redes.jpeg",
+    "heroImage": "/images/services/redes.webp",
+    "subServices": [
+      {
+        "title": "CABLEADO ESTRUCTURADO",
+        "description": "Ingeniería, diseño, instalación, certificación",
+        "image": "/images/services/redes11.webp"
+      },
+      {
+        "title": "ROUTING AND SWITCHING",
+        "description": "Diseño y supervisión de proyectos de construcción",
+        "image": "/images/services/redes12.webp"
+      },
+      {
+        "title": "CENTRALES TELEFONICAS",
+        "description": "Diseño y supervisión de proyectos de construcción",
+        "image": "/images/services/redes13.webp"
+      }
+    ]
+  },
+  {
+    "slug": "seguridad-electronica",
+    "title": "SEGURIDAD ELECTRONICA Y VIDEO VIGILANCIA",
+    "description": "Tecnología y experiencia para sistemas de seguridad confiables.",
+    "longDescription": "Un equipo especializado asegura instalación, evaluación y mantenimiento eficientes.",
+    "image": "/images/services/camara.webp",
+    "heroImage": "/images/services/camara.webp",
+    "subServices": [
+      {
+        "title": "VIDEO VIGILANCIA Y CCTV",
+        "description": "Mantenimiento, Diseño, configuración, instalación",
+        "image": "/images/services/seg11.webp"
+      },
+      {
+        "title": "CENTRAL DE ALARMAS CONTRA INCENDIOS",
+        "description": "instalaciones, mantenimiento ,diseño, configuración",
+        "image": "/images/services/seg13.webp"
+      },
+      {
+        "title": "SISTEMA DE AUTOMATIZACIÓN, CONTROL DE ACCESO Y DETECCION DE INTRUSOS",
+        "description": "Ingeniería , mantenimiento, instalaciones, diseño",
+        "image": "/images/services/seg12.webp"
+      }
+    ]
+  },
+  {
+    "slug": "energia-electrica",
+    "title": "ENERGIA ELECTRICA",
+    "description": "La electricidad es la base que permite operar, comunicar y hacer crecer a las empresas.",
+    "longDescription": "Energía confiable que alimenta el desarrollo tecnológico y operativo.",
+    "image": "/images/services/energia.webp",
+    "heroImage": "/images/services/energia.webp",
+    "subServices": [
+      {
+        "title": "SISTEMAS DE PUESTA A TIERRA Y PARARRAYOS",
+        "description": "Mantenimiento, estudio, diseño, medición, certificación",
+        "image": "/images/services/energia11.webp"
+      },
+      {
+        "title": "AUTOMATIZACION Y CONTROL DE SUBESTACIONES Y PROCESO INDUSTRIALES",
+        "description": "Instalaciones, diseño, programación, integración, pruebas, sistemas SCADA DCS",
+        "image": "/images/services/energia12.webp"
+      },
+      {
+        "title": "SISTEMAS ELECTRICOS DE POTENCIA",
+        "description": "Diseño, medición, pruebas de potencia, resistencia entre otros",
+        "image": "/images/services/energia13.webp"
+      }
+    ]
+  }
+]

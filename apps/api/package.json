@@ -1,0 +1,37 @@
+{
+  "name": "@ccxp/api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "nitro dev --port 3001",
+    "build": "nitro build",
+    "start": "node .output/server/index.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@ccxp/contracts": "workspace:*",
+    "@t3-oss/env-core": "0.13.11",
+    "h3": "1.15.11",
+    "nitropack": "2.14.0",
+    "nodemailer": "10.6.1",
+    "pino": "10.4.0",
+    "pino-http": "11.0.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@ccxp/config": "workspace:*",
+    "@types/node": "24.19.4",
+    "@types/nodemailer": "8.0.2",
+    "eslint": "10.16.0",
+    "typescript": "5.9.3",
+    "vite": "8.4.0",
+    "vitest": "5.1.2"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@ccxp/contracts",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./contact": {
+      "types": "./src/contact.ts",
+      "default": "./src/contact.ts"
+    },
+    "./ubigeo": {
+      "types": "./src/ubigeo.ts",
+      "default": "./src/ubigeo.ts"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@ccxp/config": "workspace:*",
+    "@types/node": "24.19.4",
+    "eslint": "10.16.0",
+    "typescript": "5.9.3",
+    "vite": "8.4.0",
+    "vitest": "5.1.2"
+  }
+}

@@ -1,7 +1,8 @@
-.nuxt
-.output
-.data
-dist
-node_modules
+**/.nuxt
+**/.output
+**/.data
+**/dist
+**/node_modules
+**/public
 pnpm-lock.yaml
-public
+demo

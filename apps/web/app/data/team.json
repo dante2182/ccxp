@@ -1,0 +1,38 @@
+[
+  {
+    "name": "INTEGRANTE 1",
+    "position": "CARGO",
+    "avatar": "/images/persona.webp",
+    "social": {
+      "facebook": "https://facebook.com/",
+      "whatsapp": "https://wa.me/51999999999",
+      "instagram": "https://instagram.com/",
+      "email": "mailto:correo@empresa.com"
+    }
+  },
+  {
+    "name": "INTEGRANTE 2",
+    "position": "CARGO",
+    "avatar": "/images/persona.webp",
+    "social": {
+      "facebook": "https://facebook.com/",
+      "instagram": "#",
+      "email": "#"
+    }
+  },
+  {
+    "name": "INTEGRANTE 3",
+    "position": "CARGO",
+    "avatar": "/images/persona.webp",
+    "social": {
+      "whatsapp": "#",
+      "instagram": "#"
+    }
+  },
+  {
+    "name": "INTEGRANTE 4",
+    "position": "CARGO",
+    "avatar": "/images/persona.webp",
+    "social": {}
+  }
+]
