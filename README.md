@@ -171,6 +171,7 @@ Se probó `typescript@7.0.2` de forma aislada y se descartó: `vue-tsc@3.3.14` i
 
 ## Estado del plan
 
+- Checklist operativa por fases y cierre de presentación: [`pasos.md`](pasos.md).
 - Fases 0–10 del workspace, Etapa 1 de `experiment/` y Steps 2–4 ejecutados y verificados.
 - Step 5 SEO implementado: `sitemap.xml` y `robots.txt` se generan en runtime desde `NUXT_PUBLIC_SITE_URL`; canonical y `og:url` usan la misma variable.
 - Checks verdes: `format:check`, `typecheck`, `lint`, `test` (29/29), `build`, `audit --audit-level moderate` y `docker compose config --quiet`.
