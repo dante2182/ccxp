@@ -1,0 +1,39 @@
+// Capa de estilos de la aplicación. El diseño aprobado vive íntegro en
+// tailwind.css (copia byte-exacta de src/index.css); este archivo queda como
+// punto de entrada para futuras parciales ya validadas contra qa/baseline/.
+
+:root {
+  --hover-highlight: #f0cf00;
+}
+
+// Hovers más llamativos: resaltado ámbar en todo elemento interactivo.
+// Estas reglas no están dentro de @layer, por lo que ganan en la cascada a los
+// estilos de tailwind.css sin necesidad de !important.
+@media (hover: hover) and (pointer: fine) {
+  a:hover,
+  button:hover,
+  summary:hover,
+  [role='button']:hover,
+  .interactive-card:hover,
+  .input:hover,
+  select:hover,
+  textarea:hover {
+    border-color: var(--hover-highlight);
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--hover-highlight) 60%, transparent),
+      0 16px 38px -16px color-mix(in oklab, var(--hover-highlight) 55%, transparent);
+  }
+
+  a:not(.btn):hover,
+  .btn-ghost:hover,
+  .link-arrow:hover,
+  summary:hover {
+    color: var(--hover-highlight);
+    text-shadow: 0 0 20px color-mix(in oklab, var(--hover-highlight) 55%, transparent);
+  }
+
+  .interactive-card:hover::before {
+    background: linear-gradient(90deg, transparent, var(--hover-highlight), transparent);
+    opacity: 1;
+  }
+}

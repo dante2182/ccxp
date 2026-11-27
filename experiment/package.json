@@ -1,0 +1,46 @@
+{
+  "name": "ccip-experiment",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@lucide/vue": "1.82.0",
+    "clsx": "2.1.1",
+    "nuxt": "4.7.0",
+    "tailwind-merge": "3.4.0",
+    "three": "0.187.0",
+    "vue": "3.5.46"
+  },
+  "overrides": {
+    "minimatch": "11.0.1"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "1.17.0",
+    "@tailwindcss/vite": "4.1.17",
+    "@types/node": "22.19.17",
+    "@types/three": "0.187.0",
+    "eslint": "10.16.0",
+    "eslint-config-prettier": "10.1.9",
+    "playwright": "^1.65.1",
+    "prettier": "3.10.1",
+    "sass": "1.108.2",
+    "tailwindcss": "4.1.17",
+    "typescript": "5.9.3",
+    "vue-tsc": "3.3.14"
+  }
+}

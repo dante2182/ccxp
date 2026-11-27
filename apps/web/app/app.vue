@@ -22,7 +22,7 @@ useHead({
     },
     {
       rel: 'stylesheet',
-      href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.scss',
     },
   ],
   meta: [{ property: 'og:url', content: canonicalUrl }],

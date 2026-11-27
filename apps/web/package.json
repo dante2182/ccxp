@@ -18,11 +18,14 @@
   "devDependencies": {
     "@ccxp/config": "workspace:*",
     "@nuxt/eslint": "1.17.0",
+    "@tailwindcss/vite": "4.3.5",
     "@types/node": "24.19.4",
     "@types/nodemailer": "8.0.2",
     "eslint": "10.16.0",
     "nuxt": "4.7.0",
     "prettier": "3.10.1",
+    "sass": "1.108.2",
+    "tailwindcss": "4.3.5",
     "typescript": "5.9.3",
     "vue-tsc": "3.3.14"
   },

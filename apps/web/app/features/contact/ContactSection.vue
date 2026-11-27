@@ -38,4 +38,4 @@ withDefaults(defineProps<{ id?: string }>(), { id: 'contacto' })
 const { contactInfo, contactMap } = useContact()
 </script>
 
-<style src="./contact.css"></style>
+<style src="./contact.scss"></style>

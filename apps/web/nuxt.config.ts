@@ -1,13 +1,21 @@
+import tailwindcss from '@tailwindcss/vite'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2026-11-20',
 
-  css: ['@/assets/css/main.css'],
+  css: ['@/assets/css/tailwind.css', '@/assets/css/main.scss'],
 
   // Directorio fuente de la aplicación
   srcDir: 'app',
 
   modules: ['@nuxt/eslint'],
+
+  // Tailwind v4 se integra como plugin de Vite; main.scss decide qué capas
+  // importar (sin preflight) para conservar el diseño actual.
+  vite: {
+    plugins: [tailwindcss()],
+  },
 
   // Configuración del servidor de desarrollo
   devServer: {

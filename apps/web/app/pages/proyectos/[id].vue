@@ -123,7 +123,7 @@ import { useHeaderScroll } from '@/composables/useHeaderScroll'
 import BaseButton from '~/components/base/BaseButton.vue'
 import SiteFooter from '~/features/layout/SiteFooter.vue'
 import SiteHeader from '~/features/layout/SiteHeader.vue'
-import '@/assets/css/components/ProjectId.css'
+import '@/assets/css/components/ProjectId.scss'
 
 const route = useRoute()
 const project = getProjectById(route.params.id as string)

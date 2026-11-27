@@ -1,7 +1,7 @@
 # Auditoría, plan de modernización y arquitectura objetivo — CCIP
 
 > **Fecha del análisis:** 2026-11-27  
-> **Estado:** plan ejecutado por fases 0–10 el 2026-11-27. Verificación automatizada en verde; historial de Git **no** reescrito.  
+> **Estado:** plan ejecutado por fases 0–10 el 2026-11-27; Etapa 1 de `experiment/` (demo visual → Nuxt 4) cerrada el 2026-11-27. Verificación automatizada en verde; historial de Git **no** reescrito.  
 > **Uso:** este archivo es la fuente de verdad para aprobar y ejecutar la migración por fases.
 
 ---
@@ -11,6 +11,7 @@
 - **Fases 0–8 aplicadas:** workspace pnpm, apps `api`/`web`, contratos Zod, dependencias actualizadas, backend SOLID con health/CORS/logs/shutdown, secretos fuera del repo y UI componentizada.
 - **Fase 9 aplicada:** Dockerfiles multi-stage no root, `deploy/docker-compose.yml` con healthchecks, límites de memoria, Nginx TLS con `/api` y runbook en `deploy/README.md`.
 - **Fase 10 aplicada:** README final con requisitos, scripts, arquitectura, convenciones, deploy y rollback; `demo/` intacto y excluido del contexto Docker.
+- **Stack de estilos:** Tailwind v4 (`@tailwindcss/vite`, sin preflight) y Sass (`sass`, archivos `.scss`, tokens en `styles/tokens.scss`); migración visual verificada sin cambios de maquetación.
 - **Verificación verde:** `pnpm format:check`, `pnpm typecheck`, `pnpm lint`, `pnpm test`, `pnpm build`, `pnpm audit --audit-level moderate` y `docker compose config`.
 - **Smoke test:** `/`, `/proyectos`, `/proyectos/1`, `/servicios/redes-telematica`, `/api/ubigeo/departamentos` y `/health` responden 200; `POST /api/contacto` conserva el contrato de error HTTP 200.
 - **Comparación visual:** `/proyectos`, `/proyectos/1` y `/servicios/redes-telematica` son idénticos píxel a píxel. En `/` las dimensiones y estructura coinciden; las diferencias localizadas corresponden al video en autoplay y a las marcas animadas, no a cambios de maquetación.
@@ -869,6 +870,101 @@ ccxp/
 
 ---
 
+## 6. Etapa 1 — Traducción del demo visual (`experiment/`) a Nuxt 4
+
+Trabajo realizado **solo dentro de `experiment/`**. El padre (`apps/*`, `packages/*`, `deploy/*`) no se modificó en esta etapa. El demo es el futuro frontend; sus piezas se moverán a `apps/web` en una etapa posterior, previa aprobación visual.
+
+### 6.1 Decisiones aprobadas
+
+| Decisión              | Valor elegido                                                                            |
+| --------------------- | ---------------------------------------------------------------------------------------- |
+| Stack del demo        | Nuxt `4.7.0` + Vue `3.5.46`, `srcDir: 'app'`, alias `~` → `app/`                         |
+| Preflight de Tailwind | **Se mantiene** (el diseño aprobado depende de él; el padre lo desactivó)                |
+| Configuración         | Local espejo del padre: **cero imports** hacia `../../` ni `@ccxp/*`                     |
+| Gestor de paquetes    | `npm` dentro de `experiment/`; **`experiment/` queda fuera de `pnpm-workspace.yaml`**    |
+| Iconos                | `@lucide/vue@1.82.0` (no `lucide-vue-next@1.0.0`, deprecado)                             |
+| Tailwind              | `tailwindcss` / `@tailwindcss/vite` `4.1.17` para conservar el bundle aprobado           |
+| TypeScript            | `5.9.3` (TS 7 ya descartado: `vue-tsc@3.3.14` falla con `ERR_PACKAGE_PATH_NOT_EXPORTED`) |
+| Auditoría             | `overrides.minimatch = 11.0.1`, mismo criterio que el padre                              |
+
+### 6.2 Línea base visual congelada
+
+- `experiment/qa/baseline/aprobado-index.html`, 31 capturas originales y 12 capturas deterministas: **intactas**.
+- `experiment/src/**`, `index.html` y `vite.config.ts` (fuentes React/Vite originales): **intactos y excluidos** de ESLint y Prettier.
+- `app/assets/css/tailwind.css` es copia **byte-exacta** de `src/index.css` (hash SHA-256 `63759177…24AA7`) y está excluida de Prettier.
+- `qa/capture.mjs` sigue bloqueado porque falta el binario `chromium_headless_shell-1255`; se usó el navegador integrado para comparar.
+
+### 6.3 Mapa de migración (origen → destino)
+
+| Origen (`experiment/src/`)   | Destino (`experiment/app/`)                                                      |
+| ---------------------------- | -------------------------------------------------------------------------------- |
+| `main.tsx`, `App.tsx`        | `app.vue`, `pages/index.vue`                                                     |
+| `index.css`                  | `assets/css/tailwind.css` (literal), `assets/css/main.scss`                      |
+| `lib/data.ts`                | `data/content.ts`, `types/content.types.ts`                                      |
+| `utils/cn.ts`                | `utils/cn.ts`                                                                    |
+| `components/Reveal.tsx`      | `components/base/BaseReveal.vue`                                                 |
+| `components/ui.tsx`          | `components/ui/{BrandLogo,SectionHeading,ServiceIcon,ThemeToggle,StatusDot}.vue` |
+| `components/Navbar.tsx`      | `features/layout/SiteHeader.vue`                                                 |
+| `components/Footer.tsx`      | `features/layout/SiteFooter.vue`                                                 |
+| `components/LegalDialog.tsx` | `features/legal/LegalDialog.vue`, `data/legal.ts`                                |
+| `components/Hero.tsx`        | `features/hero/Hero.vue`                                                         |
+| `components/PlanetScene.tsx` | `features/hero/PlanetScene.vue`                                                  |
+| `components/TrustBar.tsx`    | `features/trust/TrustBar.vue`                                                    |
+| `components/Services.tsx`    | `features/services/Services.vue`                                                 |
+| `components/Approach.tsx`    | `features/about/Approach.vue`                                                    |
+| `components/About.tsx`       | `features/about/About.vue`                                                       |
+| `components/Blog.tsx`        | `features/blog/Blog.vue`                                                         |
+| `components/Contact.tsx`     | `features/contact/Contact.vue`, `features/contact/ProjectCard.vue` (extraído)    |
+| hooks inline en componentes  | `composables/{useInView,useTheme,useLanding,useDialog}.ts`                       |
+| `utils/icons` en `ui.tsx`    | `utils/icons.ts`                                                                 |
+
+No quedan componentes duplicados: `Capabilities.vue` se renombró a `features/about/Approach.vue` y la home referencia solo ese nombre.
+
+### 6.4 Verificación de la Etapa 1
+
+| Comando (`cwd=experiment/`)        | Resultado                                            |
+| ---------------------------------- | ---------------------------------------------------- |
+| `npm ci`                           | ✅ 759 paquetes, `postinstall: nuxt prepare`         |
+| `npm run typecheck`                | ✅ sin errores                                       |
+| `npm run lint`                     | ✅ 0 errores, 0 warnings                             |
+| `npm run format:check`             | ✅ todos los archivos (fuentes congeladas excluidas) |
+| `npm run build`                    | ✅ cliente 994.92 kB (276.02 kB gzip)                |
+| `npm audit --audit-level moderate` | ✅ 0 vulnerabilidades                                |
+
+**Paridad visual contra `aprobado-index.html`** (mismo viewport, tema oscuro, CSS determinista en ambas páginas):
+
+- Idénticos: `body`/`header`/`h1`, las 6 secciones con cajas exactas (`inicio` 762 px, `servicios` 1094, `capacidades` 1745, `nosotros` 641, `blog` 1260, `contacto` 1340), longitud de texto 6811 caracteres, contadores de elementos, `bodyHeight` 8516, canvas WebGL y logo.
+- Únicas diferencias de DOM: el wrapper `#__nuxt` y los scripts de hidratación, esperados.
+- Diferencia de píxeles: 0,07 % en secciones estáticas y ~1 % en la home; procede del canvas WebGL animado (estrellas/planeta), que no es determinista.
+- Sin errores de consola.
+
+**Interacciones verificadas:** toggle de tema (clase `dark`, `localStorage.ccip-theme`, `theme-color`), navegación/anclas y `requestQuote` con preselección, validación del formulario (4 errores y foco en el primer campo), expansión "Completar solicitud", envío simulado con `setTimeout(1100)` y folio `CCIP-2026-XXXX`, y apertura/cierre del modal del blog.
+
+**Advertencias no bloqueantes del build:** `css.devSourcemap` deprecado, chunks >500 kB por three.js/WebGL y avisos de sourcemap del plugin de Tailwind. No se aplicó "optimización de assets" (requiere aprobación).
+
+**Ajuste posterior a la traducción:** se corrigió el `IntersectionObserver` de `BaseReveal.vue`: la ref se enlaza ahora con un callback (no con `:ref="nodeRef"`, que entregaba `null`) y las refs DOM usan `shallowRef` para evitar la deformación de tipos de Vue 3.5. Los 37 elementos `.reveal` vuelven a quedar ocultos (`opacity: 0`) y se activan progresivamente al scrollear. Además, `main.scss` añade un resaltado de hover con `--hover-highlight: #f0cf00` (borde, glow y texto) para enlaces, botones, tarjetas, `summary` y campos de formulario. Las animaciones existentes (`marquee`, `pulse-dot`, `drift`, `floaty-slow`, `rise-in`) siguen activas.
+
+### 6.5 Guía para migrar piezas a `apps/web`
+
+Orden recomendado, de menor a mayor riesgo:
+
+1. **Tokens y estilos base:** llevar `app/assets/css/main.scss` y las variables a `styles/tokens.css`. **No copiar `tailwind.css` tal cual**: el padre desactivó el preflight. Requiere decisión explícita antes de moverlo.
+2. **Primitivas UI** (`components/ui/*`, `BaseReveal.vue`): no conocen dominio; se mueven primero y se comparan con el golden.
+3. **Composables** (`useTheme`, `useInView`, `useLanding`, `useDialog`): adaptar el tema al `runtimeConfig` del padre y conservar `localStorage.ccip-theme` y `?theme=`.
+4. **Contenido** (`data/content.ts`, `types/content.types.ts`, `data/legal.ts`): revisar la fuente única de contenido del padre; no duplicar catálogos.
+5. **Layout** (`SiteHeader`, `SiteFooter`, `LegalDialog`): mantener anclas `#inicio…#contacto` y el contrato histórico `POST /api/contacto` → 200 con `{ success: false, message: 'Error al enviar correo' }`.
+6. **Features estáticas** en orden: `TrustBar` → `Services` → `Approach` → `About` → `Blog` → `Contact`/`ProjectCard`.
+7. **`Hero` y `PlanetScene` al final:** WebGL es la pieza más sensible y la única que impide una comparación píxel a píxel.
+
+**Conflictos a resolver con el usuario antes de mover:**
+
+- Preflight de Tailwind (demo sí, padre no).
+- Teléfonos discrepantes ya presentes en el demo: `+51 959 829 143` / `wa.me/51959829143` en contacto vs `+51 992 275 316` en el footer. **No se "corrigió"**; se conservó el diseño aprobado.
+- Nombres de tokens/clases (`bg-bg-deep`, `panel`, `input`, `link-arrow`) frente a los del padre; hay que decidir si se renombran o se co-existen temporalmente.
+- `apps/web` es SSR: hay que validar que el script síncrono de tema y el canvas WebGL no produzcan hydratación diferente.
+
+---
+
 ## Estado actual de este documento
 
-Este `.md` es el entregable del **paso 1**. El siguiente paso es recibir aprobación (o ajustes) y ejecutar **solo la Fase 0**, dejando registro explícito de cada decisión antes de tocar código.
+Las fases 0–10 del padre y la Etapa 1 de `experiment/` están ejecutadas y verificadas. El siguiente paso es la aprobación visual de la home migrada y, después, mover las piezas a `apps/web` siguiendo el orden de la sección 6.5. Cada movimiento debe conservar imports sin dependencias cruzadas, sin duplicados y con comparación visual contra `qa/baseline/`.

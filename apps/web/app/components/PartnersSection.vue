@@ -1,5 +1,5 @@
 <template>
-  <section v-bind="$attrs" :id="($attrs as any).id || id" class="partners-section">
+  <section v-bind="$attrs" :id="id" class="partners-section">
     <div v-for="(group, groupIndex) in partnerGroups" :key="groupIndex" class="partner-group">
       <div class="partner-group-header">
         <h2 class="partner-group-title">
@@ -39,14 +39,9 @@
 <script setup lang="ts">
 import { usePartners } from '@/composables/usePartners'
 
-defineProps({
-  id: {
-    type: String,
-    default: '',
-  },
-})
+defineProps<{ id?: string }>()
 
 const { partnerGroups } = usePartners()
 </script>
 
-<style scoped src="@/assets/css/components/PartnersSection.css"></style>
+<style scoped src="@/assets/css/components/PartnersSection.scss"></style>

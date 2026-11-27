@@ -85,4 +85,4 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped src="./site-header.css"></style>
+<style scoped src="./site-header.scss"></style>

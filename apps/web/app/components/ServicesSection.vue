@@ -35,4 +35,4 @@ defineProps<{
 const services: Service[] = getAllServices()
 </script>
 
-<style scoped src="@/assets/css/components/ServicesSection.css"></style>
+<style scoped src="@/assets/css/components/ServicesSection.scss"></style>

@@ -1,0 +1,19 @@
+# Fuentes React/Vite originales: baseline visual aprobado, no se reformatean.
+src/
+index.html
+vite.config.ts
+
+# Copia byte-exacta de src/index.css: se conserva literal.
+app/assets/css/tailwind.css
+
+# Golden visual congelado y scripts QA: no se tocan.
+qa/
+
+# Artefactos generados y dependencias.
+dist/
+.nuxt/
+.output/
+.data/
+node_modules/
+package-lock.json
+pnpm-lock.yaml

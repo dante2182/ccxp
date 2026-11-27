@@ -1,5 +1,5 @@
 <template>
-  <section v-bind="$attrs" :id="$attrs.id || id" class="about-section">
+  <section v-bind="$attrs" :id="id" class="about-section">
     <div class="about-container">
       <!-- Imagen -->
       <div class="about-image">
@@ -53,19 +53,8 @@
   </section>
 </template>
 
-<script setup>
-import { onMounted } from 'vue'
-
-const props = defineProps({
-  id: {
-    type: String,
-    default: '',
-  },
-})
-
-onMounted(() => {
-  console.log('🔵 AboutSection montado con ID:', props.id)
-})
+<script setup lang="ts">
+defineProps<{ id?: string }>()
 </script>
 
-<style src="../assets/css/components/AboutSection.css"></style>
+<style src="../assets/css/components/AboutSection.scss"></style>

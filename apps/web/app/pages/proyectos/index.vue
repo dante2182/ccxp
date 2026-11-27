@@ -42,4 +42,4 @@ useSeoMeta({
 })
 </script>
 
-<style scoped src="~/assets/css/components/ProjectMain.css"></style>
+<style scoped src="~/assets/css/components/ProjectMain.scss"></style>

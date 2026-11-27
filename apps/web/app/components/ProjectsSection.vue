@@ -89,4 +89,4 @@ const {
 } = useCarousel(projects.length)
 </script>
 
-<style scoped src="../assets/css/components/ProjectsSection.css"></style>
+<style scoped src="../assets/css/components/ProjectsSection.scss"></style>

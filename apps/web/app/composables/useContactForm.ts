@@ -1,6 +1,7 @@
 import type { ContactRequest, ContactResponse, UbigeoResponse } from '@ccxp/contracts'
 import { ref } from 'vue'
 import contactJson from '@/data/contact.json'
+import { logger } from '@/utils/logger'
 
 export function useContactForm() {
   // ================== ESTADOS ==================
@@ -81,11 +82,22 @@ export function useContactForm() {
     (apellidos.value = v.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, ''))
 
   // ================== UBIGEO ==================
+  const clearDistritos = () => {
+    distritos.value = []
+    distrito.value = ''
+  }
+
+  const clearProvincias = () => {
+    provincias.value = []
+    provincia.value = ''
+    clearDistritos()
+  }
+
   const loadDepartamentos = async () => {
     try {
       departamentos.value = await $fetch<UbigeoResponse>('/api/ubigeo/departamentos')
     } catch (error) {
-      console.error('Error al cargar departamentos:', error)
+      logger.error('Error al cargar departamentos', error)
       departamentos.value = []
     }
   }
@@ -93,10 +105,7 @@ export function useContactForm() {
   const loadProvincias = async () => {
     // Validar que haya un departamento seleccionado
     if (!departamento.value) {
-      provincias.value = []
-      provincia.value = ''
-      distrito.value = ''
-      distritos.value = []
+      clearProvincias()
       return
     }
 
@@ -104,23 +113,17 @@ export function useContactForm() {
       // Codificar el nombre del departamento para la URL
       const depEncoded = encodeURIComponent(departamento.value)
       provincias.value = await $fetch<UbigeoResponse>(`/api/ubigeo/provincias/${depEncoded}`)
-      provincia.value = ''
-      distrito.value = ''
-      distritos.value = []
+      clearDistritos()
     } catch (error) {
-      console.error('Error al cargar provincias:', error)
-      provincias.value = []
-      provincia.value = ''
-      distrito.value = ''
-      distritos.value = []
+      logger.error('Error al cargar provincias', error)
+      clearProvincias()
     }
   }
 
   const loadDistritos = async () => {
     // Validar que haya departamento y provincia seleccionados
     if (!departamento.value || !provincia.value) {
-      distritos.value = []
-      distrito.value = ''
+      clearDistritos()
       return
     }
 
@@ -133,9 +136,8 @@ export function useContactForm() {
       )
       distrito.value = ''
     } catch (error) {
-      console.error('Error al cargar distritos:', error)
-      distritos.value = []
-      distrito.value = ''
+      logger.error('Error al cargar distritos', error)
+      clearDistritos()
     }
   }
 
@@ -191,7 +193,7 @@ ${mensaje.value}
 
       return { success: true, errores: {} }
     } catch (error) {
-      console.error('Error al enviar:', error)
+      logger.error('Error al enviar', error)
       return {
         success: false,
         errores: { general: 'Error al enviar el formulario. Por favor, intente nuevamente.' },

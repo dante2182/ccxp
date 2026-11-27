@@ -88,4 +88,4 @@ import { useCompanySocial } from '~/composables/useCompanySocial'
 const { companySocial } = useCompanySocial()
 </script>
 
-<style scoped src="./site-footer.css"></style>
+<style scoped src="./site-footer.scss"></style>

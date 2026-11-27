@@ -1,5 +1,5 @@
 <template>
-  <section v-bind="$attrs" :id="($attrs as any).id || id" class="team-section">
+  <section v-bind="$attrs" :id="id" class="team-section">
     <div class="team-hero">
       <div class="team-hero-overlay"></div>
       <div class="team-hero-content">
@@ -93,14 +93,9 @@
 <script setup lang="ts">
 import { useTeam } from '~/composables/useTeam'
 
-defineProps({
-  id: {
-    type: String,
-    default: '',
-  },
-})
+defineProps<{ id?: string }>()
 
 const { teamMembers } = useTeam()
 </script>
 
-<style scoped src="@/assets/css/components/TeamSection.css"></style>
+<style scoped src="@/assets/css/components/TeamSection.scss"></style>

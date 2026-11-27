@@ -1,0 +1,18 @@
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@theme {
+  --color-ccip-navy: var(--ccip-navy);
+  --color-ccip-navy-dark: var(--ccip-navy-dark);
+  --color-ccip-navy-light: var(--ccip-navy-light);
+  --color-ccip-green: var(--ccip-green);
+  --color-ccip-green-dark: var(--ccip-green-dark);
+  --color-ccip-danger: var(--ccip-danger);
+  --color-ccip-text: var(--ccip-text);
+  --color-ccip-muted: var(--ccip-text-muted);
+  --color-ccip-surface: var(--ccip-surface);
+  --color-ccip-surface-muted: var(--ccip-surface-muted);
+  --radius-ccip: var(--ccip-radius-md);
+  --shadow-ccip: var(--ccip-shadow-md);
+}

@@ -1,3 +1,5 @@
+@use '../../styles/tokens' as tokens;
+
 /* ============================================== HERO SECTION ============================================== */
 .contact-section {
   background: var(--ccip-surface);
@@ -91,7 +93,7 @@
 .contact-form select:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: var(--ccip-navy);
+  border-color: tokens.$navy;
   box-shadow: 0 0 0 3px rgba(26, 58, 95, 0.18);
 }
 

@@ -1,0 +1,19 @@
+// Constantes Sass espejo de las custom properties de tokens.css.
+// No emite CSS: se importa con `@use` desde los archivos .scss que lo necesiten.
+$navy: #1a3a5f;
+$navy-dark: #0f2744;
+$navy-light: #244c7a;
+$green: #8dc63f;
+$green-dark: #7db32f;
+$danger: #e74c3c;
+$danger-soft: #ffeaea;
+$text: #333333;
+$text-muted: #666666;
+$placeholder: #999999;
+$border: #dcdcdc;
+$surface: #ffffff;
+$surface-muted: #f8f9fa;
+$disabled-bg: #f5f5f5;
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;

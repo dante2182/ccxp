@@ -71,4 +71,4 @@ const handleScrollClick = () => {
   goToSection('about')
 }
 </script>
-<style scoped src="../assets/css/pages/IndexSection.css"></style>
+<style scoped src="../assets/css/pages/IndexSection.scss"></style>
