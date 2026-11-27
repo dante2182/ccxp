@@ -1,0 +1,78 @@
+[
+  {
+    "id": "fibra",
+    "label": "Fibra óptica",
+    "eyebrow": "Backbone de nueva generación",
+    "title": "Fibra certificada de extremo a extremo.",
+    "description": "Tendemos, fusionamos y certificamos fibra óptica con protocolos que no dejan nada al azar. Cada empalme, cada curva y cada enlace queda documentado para auditoría.",
+    "bullets": [
+      "Certificación OTDR y Fluke Networks por tramo",
+      "Empalmes por fusión con pérdida controlada",
+      "Diseño de rutas y redundancia de última milla"
+    ],
+    "metrics": [
+      { "value": "≤ 0.15 dB", "label": "pérdida por empalme" },
+      { "value": "100 Gbps", "label": "capacidad de transporte" },
+      { "value": "99,99 %", "label": "disponibilidad de enlace" }
+    ],
+    "image": "https://images.pexels.com/photos/4425157/pexels-photo-4425157.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1400",
+    "imageAlt": "Patch panel de fibra óptica con cables azules en un rack de comunicaciones"
+  },
+  {
+    "id": "5g",
+    "label": "5G & Wireless",
+    "eyebrow": "Ingeniería de radiofrecuencia",
+    "title": "Cobertura diseñada, no improvisada.",
+    "description": "Estudiamos el espectro, calculamos la propagación y desplegamos la antena correcta donde realmente se necesita. Radioenlaces y 5G con capacidad para crecer.",
+    "bullets": [
+      "Site survey y planificación RF con software especializado",
+      "Instalación de antenas, torres y radioenlaces troncales",
+      "Optimización y monitoreo de cobertura en campo"
+    ],
+    "metrics": [
+      { "value": "± 2 dB", "label": "precisión de diseño RF" },
+      { "value": "34+", "label": "sitios desplegados" },
+      { "value": "24/7", "label": "monitoreo de enlaces" }
+    ],
+    "image": "https://images.pexels.com/photos/9290878/pexels-photo-9290878.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1400",
+    "imageAlt": "Torre de telecomunicaciones con antenas y parabólicas"
+  },
+  {
+    "id": "seguridad",
+    "label": "Seguridad IP",
+    "eyebrow": "Vigilancia con inteligencia",
+    "title": "Ver para decidir, a tiempo.",
+    "description": "Sistemas de videovigilancia IP y control de accesos que se integran en una sola plataforma. Analítica en el borde, grabación redundante y acceso desde cualquier sede.",
+    "bullets": [
+      "Cámaras IP con analítica de video incorporada",
+      "Control de accesos y detección perimetral integrada",
+      "Protocolos de retención y ciberseguridad"
+    ],
+    "metrics": [
+      { "value": "4K", "label": "resolución por canal" },
+      { "value": "30 días", "label": "grabación redundante" },
+      { "value": "98 %", "label": "reducción de falsas alarmas" }
+    ],
+    "image": "https://images.pexels.com/photos/19782580/pexels-photo-19782580.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1400",
+    "imageAlt": "Cámaras de videovigilancia instaladas frente a un edificio corporativo"
+  },
+  {
+    "id": "energia",
+    "label": "Energía & UPS",
+    "eyebrow": "Continuidad operativa",
+    "title": "La red no se detiene cuando la energía sí.",
+    "description": "Puestas a tierra, pararrayos, tableros y respaldo con baterías calculados según su carga crítica. Protegemos los equipos que sostienen tu operación.",
+    "bullets": [
+      "Estudio de resistividad y malla de puesta a tierra",
+      "Tableros y subestaciones bajo normativa CNE",
+      "UPS y respaldo dimensionado según autonomía requerida"
+    ],
+    "metrics": [
+      { "value": "< 5 Ω", "label": "resistencia de puesta a tierra" },
+      { "value": "0 ms", "label": "transferencia a respaldo" },
+      { "value": "CNE", "label": "cumplimiento normativo" }
+    ],
+    "image": "https://images.pexels.com/photos/14319099/pexels-photo-14319099.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1400",
+    "imageAlt": "Técnico verificando un tablero eléctrico industrial con multímetro"
+  }
+]

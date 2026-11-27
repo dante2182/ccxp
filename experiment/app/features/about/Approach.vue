@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { Activity, ArrowRight, Check, MapPin, Phone, Sparkles } from '@lucide/vue'
-import { CAPABILITIES, CONTACT } from '~/data/content'
+import { useContent } from '~/composables/useContent'
 import { capabilityIcons } from '~/utils/icons'
 import { cn } from '~/utils/cn'
 import type { Capability } from '~/types/content.types'
 
 defineEmits<{ quote: [service?: string] }>()
+
+const { site, capabilities: CAPABILITIES } = useContent()
+const CONTACT = computed(() => site.value.contact)
 
 const capabilityToService: Record<string, string> = {
   fibra: 'Telecomunicaciones',
@@ -14,11 +17,11 @@ const capabilityToService: Record<string, string> = {
   energia: 'Energía eléctrica',
 }
 
-const activeId = ref(CAPABILITIES[0]!.id)
+const activeId = ref(CAPABILITIES.value[0]?.id ?? '')
 const active = computed<Capability>(
-  () => CAPABILITIES.find((c) => c.id === activeId.value) ?? CAPABILITIES[0]!,
+  () => CAPABILITIES.value.find((c) => c.id === activeId.value) ?? CAPABILITIES.value[0]!,
 )
-const activeIndex = computed(() => CAPABILITIES.findIndex((c) => c.id === active.value.id))
+const activeIndex = computed(() => CAPABILITIES.value.findIndex((c) => c.id === active.value.id))
 </script>
 
 <template>

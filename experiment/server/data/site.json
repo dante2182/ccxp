@@ -1,0 +1,46 @@
+{
+  "trustClients": [
+    "Operadores de telecomunicaciones",
+    "Minería y gran industria",
+    "Gobiernos regionales",
+    "Salud y clínicas",
+    "Educación superior",
+    "Banca y retail"
+  ],
+  "stats": [
+    { "value": "12+", "label": "años de experiencia", "detail": "desde 2014" },
+    { "value": "480+", "label": "proyectos ejecutados", "detail": "en 9 regiones" },
+    { "value": "99,99%", "label": "disponibilidad de red", "detail": "monitoreo 24/7" },
+    { "value": "18", "label": "ingenieros certificados", "detail": "equipo en campo" }
+  ],
+  "process": [
+    {
+      "step": "01",
+      "title": "Diagnóstico",
+      "text": "Visitamos la sede, medimos la infraestructura existente y levantamos los requerimientos reales de su operación."
+    },
+    {
+      "step": "02",
+      "title": "Diseño",
+      "text": "Entregamos planos, memoria de cálculo, especificación de equipos y cronograma con presupuesto cerrado."
+    },
+    {
+      "step": "03",
+      "title": "Implementación",
+      "text": "Ejecutamos con protocolos de seguridad, supervisión permanente y mínima interrupción de su operación."
+    },
+    {
+      "step": "04",
+      "title": "Certificación",
+      "text": "Certificamos cada tramo, documentamos la instalación y capacitamos al equipo para el soporte continuo."
+    }
+  ],
+  "contact": {
+    "address": "Calle Peral 119, Cercado, Arequipa, Perú",
+    "phone": "+51 959 829 143",
+    "phoneHref": "+51959829143",
+    "email": "ventas@ccip.com.pe",
+    "hours": "Lunes a viernes, 8:00 – 18:00",
+    "whatsapp": "https://wa.me/51959829143?text=Hola%20CCIP%2C%20quisiera%20conversar%20sobre%20un%20proyecto%20de%20infraestructura."
+  }
+}

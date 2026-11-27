@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { STATS, TRUST_CLIENTS } from '~/data/content'
+import { useContent } from '~/composables/useContent'
 import { sectorIcons } from '~/utils/icons'
+
+const { site } = useContent()
+const TRUST_CLIENTS = computed(() => site.value.trustClients)
+const STATS = computed(() => site.value.stats)
 </script>
 
 <template>

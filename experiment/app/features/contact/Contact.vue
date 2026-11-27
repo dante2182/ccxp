@@ -11,8 +11,11 @@ import {
   Phone,
   ShieldCheck,
 } from '@lucide/vue'
-import { CONTACT, SERVICES } from '~/data/content'
+import { useContent } from '~/composables/useContent'
 import { cn } from '~/utils/cn'
+
+const { site, services: SERVICES } = useContent()
+const CONTACT = computed(() => site.value.contact)
 
 type FormState = {
   nombre: string
@@ -49,7 +52,7 @@ let timer: number | undefined
 watch(
   () => props.preselect,
   (preselect) => {
-    const value = SERVICES.some((s) => s.slug === preselect)
+    const value = SERVICES.value.some((s) => s.slug === preselect)
       ? preselect
       : preselect
         ? 'Otra solución / asesoría a medida'
@@ -115,12 +118,22 @@ const resetForm = () => {
   isExpanded.value = false
 }
 
-const contactItems = [
-  { icon: MapPin, label: 'Dirección', value: CONTACT.address, href: undefined },
-  { icon: Phone, label: 'Teléfono', value: CONTACT.phone, href: `tel:${CONTACT.phoneHref}` },
-  { icon: Mail, label: 'Correo', value: CONTACT.email, href: `mailto:${CONTACT.email}` },
-  { icon: Clock, label: 'Horario de atención', value: CONTACT.hours, href: undefined },
-]
+const contactItems = computed(() => [
+  { icon: MapPin, label: 'Dirección', value: CONTACT.value.address, href: undefined },
+  {
+    icon: Phone,
+    label: 'Teléfono',
+    value: CONTACT.value.phone,
+    href: `tel:${CONTACT.value.phoneHref}`,
+  },
+  {
+    icon: Mail,
+    label: 'Correo',
+    value: CONTACT.value.email,
+    href: `mailto:${CONTACT.value.email}`,
+  },
+  { icon: Clock, label: 'Horario de atención', value: CONTACT.value.hours, href: undefined },
+])
 const cities = ['Arequipa', 'Lima', 'Cusco', 'Puno', 'Moquegua', 'Tacna']
 </script>
 

@@ -12,6 +12,10 @@
       "types": "./src/contact.ts",
       "default": "./src/contact.ts"
     },
+    "./problem": {
+      "types": "./src/problem.ts",
+      "default": "./src/problem.ts"
+    },
     "./ubigeo": {
       "types": "./src/ubigeo.ts",
       "default": "./src/ubigeo.ts"

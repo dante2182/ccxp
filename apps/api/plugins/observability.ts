@@ -1,9 +1,10 @@
 import { randomUUID } from 'node:crypto'
-import { setHeader } from 'h3'
+import { setHeader, setResponseStatus } from 'h3'
 import { defineNitroPlugin } from 'nitropack/runtime'
 import pinoHttp from 'pino-http'
 import { logger } from '../src/config/logger'
 import { closeServices } from '../src/container'
+import { HttpError } from '../src/shared/http-error'
 
 const httpLogger = pinoHttp({
   logger,
@@ -25,6 +26,13 @@ export default defineNitroPlugin((nitro) => {
 
   nitro.hooks.hook('error', (error, context) => {
     logger.error({ err: error, requestId: context.event?.context.requestId }, 'Unhandled API error')
+    if (context.event) {
+      const status =
+        error instanceof HttpError
+          ? error.status
+          : ((error as { statusCode?: number }).statusCode ?? 500)
+      setResponseStatus(context.event, status)
+    }
   })
 
   nitro.hooks.hook('close', async () => {

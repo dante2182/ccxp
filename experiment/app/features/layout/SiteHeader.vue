@@ -1,53 +1,28 @@
 <script setup lang="ts">
 import { ArrowRight, Menu, MessageCircle, X } from '@lucide/vue'
 import { cn } from '~/utils/cn'
-import { CONTACT } from '~/data/content'
+import { useContent } from '~/composables/useContent'
+import { useScrollState } from '~/composables/useScrollState'
+import { useSectionHref } from '~/composables/useSectionHref'
 import type { Theme } from '~/types/content.types'
 
 defineProps<{ theme: Theme }>()
 defineEmits<{ toggleTheme: []; quote: [] }>()
 
+const { site } = useContent()
+const sectionHref = useSectionHref()
+
 const LINKS = [
-  { label: 'Inicio', href: '#inicio', id: 'inicio' },
-  { label: 'Servicios', href: '#servicios', id: 'servicios' },
-  { label: 'Capacidades', href: '#capacidades', id: 'capacidades' },
-  { label: 'Nosotros', href: '#nosotros', id: 'nosotros' },
-  { label: 'Blog', href: '#blog', id: 'blog' },
-  { label: 'Contáctenos', href: '#contacto', id: 'contacto' },
+  { label: 'Inicio', id: 'inicio' },
+  { label: 'Servicios', id: 'servicios' },
+  { label: 'Capacidades', id: 'capacidades' },
+  { label: 'Nosotros', id: 'nosotros' },
+  { label: 'Blog', id: 'blog' },
+  { label: 'Contáctenos', id: 'contacto' },
 ]
 
-const scrolled = ref(false)
-const progress = ref(0)
-const active = ref('inicio')
+const { scrolled, progress, active } = useScrollState(LINKS.map((link) => link.id))
 const open = ref(false)
-
-let raf = 0
-const update = () => {
-  raf = 0
-  const y = window.scrollY
-  scrolled.value = y > 24
-  const height = document.documentElement.scrollHeight - window.innerHeight
-  progress.value = height > 0 ? Math.min(1, y / height) : 0
-
-  let current = 'inicio'
-  LINKS.forEach((link) => {
-    const node = document.getElementById(link.id)
-    if (node && node.getBoundingClientRect().top <= window.innerHeight * 0.32) current = link.id
-  })
-  active.value = current
-}
-const onScroll = () => {
-  if (!raf) raf = requestAnimationFrame(update)
-}
-
-onMounted(() => {
-  update()
-  window.addEventListener('scroll', onScroll, { passive: true })
-})
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', onScroll)
-  if (raf) cancelAnimationFrame(raf)
-})
 
 let previousOverflow = ''
 let onKey: ((event: KeyboardEvent) => void) | undefined
@@ -87,7 +62,7 @@ onBeforeUnmount(() => {
       class="pointer-events-none absolute inset-0 -z-10 backdrop-blur-2xl backdrop-saturate-150"
     />
     <div class="container-x flex h-[4.4rem] items-center justify-between gap-4 lg:h-[4.75rem]">
-      <a href="#inicio" aria-label="CCIP inicio" class="shrink-0">
+      <a :href="sectionHref('inicio')" aria-label="CCIP inicio" class="shrink-0">
         <BrandLogo />
       </a>
 
@@ -95,7 +70,7 @@ onBeforeUnmount(() => {
         <a
           v-for="link in LINKS"
           :key="link.id"
-          :href="link.href"
+          :href="sectionHref(link.id)"
           :class="
             cn(
               'group/nav relative rounded-full px-3.5 py-2 text-[0.8rem] font-medium tracking-[-0.01em] transition-colors duration-200',
@@ -119,7 +94,7 @@ onBeforeUnmount(() => {
 
       <div class="flex items-center gap-2 sm:gap-3">
         <ThemeToggle :theme="theme" @toggle="$emit('toggleTheme')" />
-        <a href="#contacto" class="btn btn-primary hidden sm:inline-flex">
+        <a :href="sectionHref('contacto')" class="btn btn-primary hidden sm:inline-flex">
           Contáctenos
           <ArrowRight class="h-4 w-4" :stroke-width="2" />
         </a>
@@ -170,7 +145,7 @@ onBeforeUnmount(() => {
         <a
           v-for="(link, i) in LINKS"
           :key="link.id"
-          :href="link.href"
+          :href="sectionHref(link.id)"
           :class="
             cn(
               'flex items-center justify-between rounded-xl px-4 py-3.5 text-[0.95rem] font-medium transition-colors',
@@ -187,12 +162,12 @@ onBeforeUnmount(() => {
         </a>
       </nav>
       <div class="mt-2 grid gap-2 border-t border-line p-1 pt-3">
-        <a href="#contacto" class="btn btn-primary w-full" @click="open = false">
+        <a :href="sectionHref('contacto')" class="btn btn-primary w-full" @click="open = false">
           Contáctenos
           <ArrowRight class="h-4 w-4" />
         </a>
         <a
-          :href="CONTACT.whatsapp"
+          :href="site.contact.whatsapp"
           target="_blank"
           rel="noreferrer"
           class="btn btn-ghost w-full"

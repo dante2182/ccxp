@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { ArrowRight, ArrowUp, Check, Mail, MapPin, MessageCircle, Phone } from '@lucide/vue'
-import { CONTACT, SERVICES } from '~/data/content'
+import { useContent } from '~/composables/useContent'
+import { useSectionHref } from '~/composables/useSectionHref'
 import type { LegalDocument } from '~/types/content.types'
 
 defineEmits<{ quote: [] }>()
+
+const { site, services: SERVICES } = useContent()
+const sectionHref = useSectionHref()
+const CONTACT = computed(() => site.value.contact)
 
 const email = ref('')
 const subscribed = ref(false)
@@ -128,7 +133,9 @@ const directionsUrl = 'https://maps.app.goo.gl/Np2FhGgMQZM7ZjiD8'
           <div class="mt-5 flex items-center gap-2">
             <template v-for="label in socialLabels" :key="label">
               <a
-                :href="label === 'Facebook' ? 'https://www.facebook.com/ccipsur/' : '#inicio'"
+                :href="
+                  label === 'Facebook' ? 'https://www.facebook.com/ccipsur/' : sectionHref('inicio')
+                "
                 :target="label === 'Facebook' ? '_blank' : undefined"
                 :rel="label === 'Facebook' ? 'noreferrer' : undefined"
                 :aria-label="label"
@@ -190,7 +197,7 @@ const directionsUrl = 'https://maps.app.goo.gl/Np2FhGgMQZM7ZjiD8'
           <ul class="mt-4 flex flex-col gap-2.5">
             <li v-for="service in SERVICES" :key="service.id">
               <a
-                href="#servicios"
+                :href="sectionHref('servicios')"
                 class="text-[0.78rem] text-muted transition-colors hover:text-accent"
               >
                 {{ service.title }}
@@ -198,7 +205,7 @@ const directionsUrl = 'https://maps.app.goo.gl/Np2FhGgMQZM7ZjiD8'
             </li>
             <li>
               <a
-                href="#capacidades"
+                :href="sectionHref('capacidades')"
                 class="text-[0.78rem] text-muted transition-colors hover:text-accent"
               >
                 Ingeniería aplicada
@@ -212,16 +219,16 @@ const directionsUrl = 'https://maps.app.goo.gl/Np2FhGgMQZM7ZjiD8'
           <ul class="mt-4 flex flex-col gap-2.5">
             <li
               v-for="link in [
-                { label: 'Inicio', href: '#inicio' },
-                { label: 'Capacidades', href: '#capacidades' },
-                { label: 'Blog técnico', href: '#blog' },
-                { label: 'Contáctenos', href: '#contacto' },
-                { label: 'Trabaje con nosotros', href: '#contacto' },
+                { label: 'Inicio', id: 'inicio' },
+                { label: 'Capacidades', id: 'capacidades' },
+                { label: 'Blog técnico', id: 'blog' },
+                { label: 'Contáctenos', id: 'contacto' },
+                { label: 'Trabaje con nosotros', id: 'contacto' },
               ]"
               :key="link.label"
             >
               <a
-                :href="link.href"
+                :href="sectionHref(link.id)"
                 class="text-[0.78rem] text-muted transition-colors hover:text-accent"
               >
                 {{ link.label }}
@@ -311,7 +318,7 @@ const directionsUrl = 'https://maps.app.goo.gl/Np2FhGgMQZM7ZjiD8'
             Términos y condiciones
           </button>
           <a
-            href="#inicio"
+            :href="sectionHref('inicio')"
             class="inline-flex items-center gap-1 rounded-full border border-line px-2.5 py-1 text-[0.64rem] text-muted transition-colors hover:border-accent/40 hover:text-accent"
           >
             <ArrowUp class="h-3 w-3" />

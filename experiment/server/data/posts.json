@@ -1,0 +1,202 @@
+[
+  {
+    "id": "fibra-5g",
+    "slug": "fibra-5g",
+    "featured": true,
+    "category": "Telecomunicaciones",
+    "categoryIcon": "telecom",
+    "title": "Fibra óptica y 5G: la red que prepara a su empresa para la próxima década",
+    "excerpt": "El despliegue 5G en el Perú exige infraestructura de fibra óptica certificada. Analizamos por qué la fibra es la base del 5G y qué debe evaluar antes de migrar.",
+    "date": "12 de noviembre de 2026",
+    "iso": "2026-11-12",
+    "readTime": "5 min de lectura",
+    "body": [
+      {
+        "text": "La discusión sobre 5G suele centrarse en la antena. Pero el rendimiento real de una red móvil de quinta generación depende, casi por completo, de lo que ocurre detrás de ella: el transporte de fibra óptica. Sin un backhaul robusto, ninguna antena puede entregar la latencia y el ancho de banda que promete."
+      },
+      {
+        "heading": "1. La antena no es el cuello de botella",
+        "text": "Cada sitio 5G necesita transportar varios gigabits por segundo hacia el núcleo de la red. Un enlace de radio mal dimensionado convierte una promesa de 1 Gbps en una experiencia de 80 Mbps en horas de mayor demanda. Antes de comprar equipos 5G, audite el enlace."
+      },
+      {
+        "heading": "2. Certificación: lo que no se mide, no existe",
+        "text": "Un tendido de fibra sin certificación es una factura pendiente. Exigimos pruebas bidireccionales de pérdida de inserción, reflectometría OTDR y presupuesto óptico documentado para cada tramo. Es la única forma de garantizar capacidad futura.",
+        "list": [
+          "Presupuesto óptico calculado y validado por tramo",
+          "Certificación de cada empalme por fusión",
+          "Rutas alternas para los enlaces considerados críticos"
+        ]
+      },
+      {
+        "heading": "3. Migre por etapas, no por moda",
+        "text": "La ruta recomendada es ordenar la base: fibra certificada, switching con capacidad de reserva y segmentación lógica. Luego habilite 5G privado o fijo inalámbrico para los casos de uso que generan valor real, como logística, minería o videovigilancia remota."
+      }
+    ]
+  },
+  {
+    "id": "videovigilancia-empresarial",
+    "slug": "videovigilancia-empresarial",
+    "featured": true,
+    "category": "Seguridad Electrónica",
+    "categoryIcon": "security",
+    "title": "Videovigilancia empresarial: de las cámaras aisladas a la seguridad inteligente",
+    "excerpt": "Las cámaras solas ya no bastan. Los sistemas de videovigilancia modernos integran analítica con IA, control de accesos y detección de intrusos en una sola plataforma.",
+    "date": "3 de noviembre de 2026",
+    "iso": "2026-11-03",
+    "readTime": "4 min de lectura",
+    "body": [
+      {
+        "text": "Una cámara conectada no es un sistema de seguridad. Es un sensor. El valor aparece cuando ese sensor se integra con el control de accesos, la detección perimetral y un protocolo de respuesta claro. Ese es el punto de partida de cualquier proyecto serio."
+      },
+      {
+        "heading": "Analítica en el borde",
+        "text": "Procesar el video dentro de la cámara reduce tráfico de red y permite detectar situaciones en tiempo real: cruce de perímetro, objetos abandonados, aglomeraciones. Además, la información sensible no necesita salir de la instalación."
+      },
+      {
+        "heading": "Diseñe el sistema alrededor de la operación",
+        "text": "Antes de elegir resoluciones y lentes, definimos qué eventos deben generar una alerta y quién responde a ellos. Documentamos los flujos de atención y los roles con acceso al video.",
+        "list": [
+          "Mapa de puntos críticos y cobertura sin ángulos muertos",
+          "Retención y cifrado según criticidad de la información",
+          "Integración con alarma de intrusos y control de puertas"
+        ]
+      },
+      {
+        "heading": "Ciberseguridad desde el primer día",
+        "text": "Cámaras con contraseñas de fábrica y firmware sin actualizar son una puerta abierta. Segmentación de red (VLAN), actualizaciones programadas y monitoreo de dispositivos son requisitos, no extras."
+      }
+    ]
+  },
+  {
+    "id": "proteccion-electrica",
+    "slug": "proteccion-electrica",
+    "featured": true,
+    "category": "Energía Eléctrica",
+    "categoryIcon": "energy",
+    "title": "Protección eléctrica industrial: puesta a tierra, pararrayos y respaldo de energía",
+    "excerpt": "Un sistema de puesta a tierra deficiente destruye equipos de decenas de miles de dólares. Revisamos las 3 protecciones que toda planta industrial debe tener.",
+    "date": "21 de octubre de 2026",
+    "iso": "2026-10-21",
+    "readTime": "6 min de lectura",
+    "body": [
+      {
+        "text": "La continuidad eléctrica no se resuelve únicamente con un UPS. Existe una cadena de protección que empieza en la tierra física y termina en el respaldo. Si un eslabón falla, los equipos críticos quedan expuestos aunque exista respaldo."
+      },
+      {
+        "heading": "1. Puesta a tierra medida, no estimada",
+        "text": "Una malla de aterramiento debe calcularse con la resistividad real del terreno. Los valores objetivo cambian según el equipo y la norma aplicable. Medimos y documentamos la resistencia antes y después de la intervención.",
+        "list": [
+          "Medición de resistividad con método Wenner",
+          "Diseño de pozo y malla según carga y norma",
+          "Verificación periódica del sistema completo"
+        ]
+      },
+      {
+        "heading": "2. Protección contra descargas atmosféricas",
+        "text": "Los pararrayos deben integrarse con el sistema de tierra y con los protectores de sobretensión de los tableros y de las líneas de datos. Un pararrayos sin coordinación puede derivar la descarga hacia la red de telecomunicaciones."
+      },
+      {
+        "heading": "3. Respaldo dimensionado con criterio",
+        "text": "Un banco de baterías o una UPS se dimensiona por carga crítica y autonomía requerida, no por tamaño del tablero. Calculamos la proyección de crecimiento para evitar sobrecostos y falsas seguridades."
+      }
+    ]
+  },
+  {
+    "id": "auditoria-de-redes",
+    "slug": "auditoria-de-redes",
+    "featured": false,
+    "category": "Redes y Telemática",
+    "categoryIcon": "telecom",
+    "title": "Auditoría de redes: el primer paso antes de invertir en nuevos equipos",
+    "excerpt": "Inventario, topología, rendimiento y seguridad. Una auditoría bien ejecutada evita compras innecesarias y revela cuellos de botella que llevan años en la red.",
+    "date": "17 de octubre de 2026",
+    "iso": "2026-10-17",
+    "readTime": "5 min de lectura",
+    "body": [
+      {
+        "text": "La mayoría de los proyectos de red empiezan por una compra. La mejor forma de evitarla es medir primero. Una auditoría entrega evidencia de lo que hoy funciona, lo que está al límite y lo que debe reemplazarse."
+      },
+      {
+        "heading": "1. Inventario y documentación",
+        "text": "Sin inventario no hay diagnóstico. Registramos equipos, puertos, firmware, enlaces y dependencias. Ese inventario es la base de cualquier plan de cambio."
+      },
+      {
+        "heading": "2. Medición bajo carga real",
+        "text": "Probamos en horarios de mayor demanda, no en una red vacía. Latencia, pérdida de paquetes y saturación de enlaces se comportan distinto cuando la operación está activa.",
+        "list": [
+          "Pruebas de throughput y latencia por tramo",
+          "Revisión de VLAN y segmentación",
+          "Identificación de puntos únicos de falla"
+        ]
+      },
+      {
+        "heading": "3. Plan por prioridades",
+        "text": "El resultado no es una lista de equipos, sino un cronograma ordenado por riesgo. Primero lo que detiene la operación; después lo que mejora capacidad; al final lo que solo aporta comodidad."
+      }
+    ]
+  },
+  {
+    "id": "certificacion-otdr",
+    "slug": "certificacion-otdr",
+    "featured": false,
+    "category": "Telecomunicaciones",
+    "categoryIcon": "telecom",
+    "title": "Cómo leer un informe OTDR sin perder el detalle importante",
+    "excerpt": "Un trazo OTDR no es solo una gráfica. Explicamos qué eventos importan, cómo se interpreta la pérdida y por qué la medición bidireccional es obligatoria.",
+    "date": "8 de octubre de 2026",
+    "iso": "2026-10-08",
+    "readTime": "4 min de lectura",
+    "body": [
+      {
+        "text": "La reflectometría es la prueba más mal interpretada en proyectos de fibra. Un evento visible no siempre es un problema, y un empalme que parece correcto puede estar fuera de especificación."
+      },
+      {
+        "heading": "Eventos reflectivos y no reflectivos",
+        "text": "Los conectores generan reflexión; los empalmes por fusión, en general, no. Confundir ambos tipos lleva a reclamaciones innecesarias y a reprocesos costosos."
+      },
+      {
+        "heading": "La medición bidireccional",
+        "text": "Medir un solo extremo puede ocultar pérdidas dependientes de la dirección. Por eso certificamos cada tramo en ambos sentidos y promediamos el resultado.",
+        "list": [
+          "Longitud y atenuación por tramo",
+          "Pérdida de inserción por evento",
+          "Presupuesto óptico total del enlace"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "continuidad-operativa",
+    "slug": "continuidad-operativa",
+    "featured": false,
+    "category": "Energía Eléctrica",
+    "categoryIcon": "energy",
+    "title": "Continuidad operativa: dimensionar UPS para la carga que realmente importa",
+    "excerpt": "Autonomía, eficiencia y crecimiento futuro. Tres criterios para dimensionar un sistema de respaldo sin sobrecostos ni falsas seguridades.",
+    "date": "29 de septiembre de 2026",
+    "iso": "2026-09-29",
+    "readTime": "5 min de lectura",
+    "body": [
+      {
+        "text": "Un UPS sobredimensionado cuesta más de lo necesario; uno subdimensionado falla justo cuando se lo necesita. La diferencia está en definir bien qué carga es crítica."
+      },
+      {
+        "heading": "1. Separe carga crítica de carga cómoda",
+        "text": "No todo lo que está en un tablero debe estar en respaldo. Listar los equipos verdaderamente críticos reduce el tamaño del sistema y simplifica el mantenimiento."
+      },
+      {
+        "heading": "2. Autonomía con criterio",
+        "text": "La autonomía se define por el tiempo real de respuesta, no por una cifra estándar. Considere el tiempo de llegada del generador y el de apagado ordenado de los sistemas.",
+        "list": [
+          "Curva de descarga según carga real",
+          "Proyección de crecimiento a tres años",
+          "Plan de reemplazo de baterías"
+        ]
+      },
+      {
+        "heading": "3. Pruebas periódicas",
+        "text": "Un sistema que nunca se prueba es una suposición. Programar simulacros de corte revela fallas de conmutación antes de que ocurran en una emergencia."
+      }
+    ]
+  }
+]

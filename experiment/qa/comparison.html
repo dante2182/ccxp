@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comparación visual · Ver más → /blog</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, system-ui, sans-serif;
+        background: #061429;
+        color: #e8eef7;
+      }
+      body {
+        margin: 0;
+        padding: 2rem;
+      }
+      h1 {
+        margin: 0 0 0.35rem;
+        font-size: 1.5rem;
+      }
+      h2 {
+        margin: 2.5rem 0 0.75rem;
+        font-size: 1.05rem;
+      }
+      p {
+        max-width: 80ch;
+        color: #9fb0c8;
+        line-height: 1.6;
+      }
+      code {
+        color: #f0cf00;
+      }
+      .pairs {
+        display: grid;
+        gap: 1rem;
+      }
+      .pair {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+      figure {
+        margin: 0;
+        border: 1px solid #24344c;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        background: #0b1c33;
+      }
+      figcaption {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.78rem;
+        color: #9fb0c8;
+        border-bottom: 1px solid #24344c;
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .single {
+        max-width: 50%;
+      }
+      a {
+        color: #f0cf00;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Comparación visual · nuevo enlace “Ver más” → <code>/blog</code></h1>
+    <p>
+      Referencia congelada: <code>qa/baseline/</code>. Nuevo baseline aprobado:
+      <code>qa/baseline-v2/</code>. Capturas con Playwright/Edge, viewport 1250×875,
+      <code>reduced-motion: reduce</code>, consola sin errores. El cambio autorizado es el enlace
+      “Ver más” junto a “Solicitar evaluación técnica” en la home y las rutas nuevas
+      <code>/blog</code> y <code>/blog/[slug]</code>.
+    </p>
+    <p>
+      Invariantes verificados: hover del enlace en <code>#f0cf00</code> (antes
+      <code>rgb(61,123,255)</code>), variable <code>--hover-highlight: #f0cf00</code>, 37 nodos
+      <code>.reveal</code> activos con opacidad 1, y SSR de contenido desde <code>/api/**</code>.
+    </p>
+
+    <div class="pairs">
+      <section class="pair">
+        <figure>
+          <figcaption>Antes · home (baseline/deterministic/dark-home.jpg)</figcaption>
+          <img src="baseline/deterministic/dark-home.jpg" alt="Home antes" />
+        </figure>
+        <figure>
+          <figcaption>Después · home (baseline-v2/dark-home.png)</figcaption>
+          <img src="baseline-v2/dark-home.png" alt="Home después" />
+        </figure>
+      </section>
+
+      <section class="pair">
+        <figure>
+          <figcaption>Antes · sección blog (baseline/deterministic/dark-blog.jpg)</figcaption>
+          <img src="baseline/deterministic/dark-blog.jpg" alt="Blog antes" />
+        </figure>
+        <figure>
+          <figcaption>Después · sección blog con “Ver más” (baseline-v2/dark-blog.png)</figcaption>
+          <img src="baseline-v2/dark-blog.png" alt="Blog después" />
+        </figure>
+      </section>
+
+      <section class="pair">
+        <figure>
+          <figcaption>Antes · modal de artículo (baseline/deterministic/dark-articulo-modal.jpg)</figcaption>
+          <img src="baseline/deterministic/dark-articulo-modal.jpg" alt="Modal antes" />
+        </figure>
+        <figure>
+          <figcaption>Después · modal de artículo (baseline-v2/dark-articulo-modal.png)</figcaption>
+          <img src="baseline-v2/dark-articulo-modal.png" alt="Modal después" />
+        </figure>
+      </section>
+
+      <section class="pair">
+        <figure class="single">
+          <figcaption>Nuevo · índice /blog (baseline-v2/dark-blog-index.png)</figcaption>
+          <img src="baseline-v2/dark-blog-index.png" alt="Índice del blog" />
+        </figure>
+        <figure class="single">
+          <figcaption>Nuevo · artículo /blog/fibra-5g (baseline-v2/dark-blog-article.png)</figcaption>
+          <img src="baseline-v2/dark-blog-article.png" alt="Artículo del blog" />
+        </figure>
+      </section>
+    </div>
+
+    <h2>Referencias</h2>
+    <p>
+      HTML aprobado original:
+      <a href="baseline/aprobado-index.html">baseline/aprobado-index.html</a>. HTML SSR del nuevo
+      baseline: <a href="baseline-v2/aprobado-index.html">baseline-v2/aprobado-index.html</a>.
+      Datos de captura: <a href="baseline-v2/errors.json">baseline-v2/errors.json</a>.
+    </p>
+  </body>
+</html>

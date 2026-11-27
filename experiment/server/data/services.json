@@ -1,0 +1,62 @@
+[
+  {
+    "id": "telecomunicaciones",
+    "slug": "Telecomunicaciones",
+    "icon": "telecom",
+    "title": "Telecomunicaciones",
+    "short": "Enlaces de voz y datos de alta disponibilidad para operadores, empresas y el Estado.",
+    "description": "Diseñamos y desplegamos enlaces de voz y datos de alta disponibilidad para operadores, empresas y el Estado.",
+    "items": [
+      "Fibra óptica (FTTH y enlaces troncales)",
+      "Antenas 4G / 5G",
+      "Radioenlaces punto a punto",
+      "Torres de comunicación"
+    ],
+    "tag": "Conectividad crítica"
+  },
+  {
+    "id": "redes",
+    "slug": "Redes y telemática",
+    "icon": "network",
+    "title": "Redes y Telemática",
+    "short": "Infraestructura de red certificada y protegida para operaciones críticas de su negocio.",
+    "description": "Infraestructura de red certificada y protegida para las operaciones críticas de su negocio.",
+    "items": [
+      "Cableado estructurado",
+      "Centrales telefónicas (IP-PBX)",
+      "Routing & switching",
+      "Seguridad TI y firewalls"
+    ],
+    "tag": "Redes que no fallan"
+  },
+  {
+    "id": "seguridad",
+    "slug": "Seguridad electrónica",
+    "icon": "security",
+    "title": "Seguridad Electrónica",
+    "short": "Protección integral de instalaciones con tecnología de videovigilancia y detección.",
+    "description": "Protección integral de instalaciones con tecnología de videovigilancia y detección inteligente.",
+    "items": [
+      "Videovigilancia CCTV / IP",
+      "Alarmas contra incendios",
+      "Control de accesos",
+      "Detección de intrusos"
+    ],
+    "tag": "Tranquilidad operativa"
+  },
+  {
+    "id": "energia",
+    "slug": "Energía eléctrica",
+    "icon": "energy",
+    "title": "Energía Eléctrica",
+    "short": "Sistemas eléctricos seguros y normalizados para continuidad operativa garantizada.",
+    "description": "Sistemas eléctricos seguros y normalizados para una continuidad operativa garantizada.",
+    "items": [
+      "Puestas a tierra y pararrayos",
+      "Tableros eléctricos",
+      "Subestaciones",
+      "Bancos de baterías (UPS)"
+    ],
+    "tag": "Continuidad 24/7"
+  }
+]

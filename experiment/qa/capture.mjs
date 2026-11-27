@@ -10,14 +10,18 @@ const valueOf = (flag, fallback) => {
 
 const out = valueOf('--out', 'qa/baseline')
 const base = valueOf('--base', 'http://localhost:4173').replace(/\/$/, '')
+const channel = valueOf('--channel', process.env.PLAYWRIGHT_CHANNEL)
+const [viewportWidth, viewportHeight] = valueOf('--viewport', '1440x1100')
+  .split('x')
+  .map(Number)
 mkdirSync(out, { recursive: true })
 
-const browser = await chromium.launch()
+const browser = await chromium.launch(channel ? { channel } : {})
 const errors = []
 
 const makePage = async (options = {}) => {
   const page = await browser.newPage({
-    viewport: { width: 1440, height: 1100 },
+    viewport: { width: viewportWidth, height: viewportHeight },
     reducedMotion: 'reduce',
     ...options,
   })
@@ -44,6 +48,10 @@ const page = await makePage()
 
 await page.goto(`${base}/?theme=dark`, { waitUntil: 'networkidle' })
 await page.waitForTimeout(1400)
+writeFileSync(
+  join(out, 'aprobado-index.html'),
+  await (await fetch(`${base}/?theme=dark`)).text(),
+)
 await shot(page, 'dark-home')
 
 for (const [name, selector] of [
@@ -63,10 +71,19 @@ await shot(page, 'dark-footer')
 
 await page.evaluate(() => document.querySelector('#blog')?.scrollIntoView({ behavior: 'instant' }))
 await page.waitForTimeout(400)
-await page.locator('text=Leer artículo').first().click()
+await page.locator('#blog details summary').first().click()
+await page.locator('#blog details button:has-text("Leer artículo completo")').first().click()
 await page.waitForTimeout(700)
 await shot(page, 'dark-articulo-modal')
 await page.keyboard.press('Escape')
+
+await page.goto(`${base}/blog?theme=dark`, { waitUntil: 'networkidle' })
+await page.waitForTimeout(1000)
+await shot(page, 'dark-blog-index')
+
+await page.goto(`${base}/blog/fibra-5g?theme=dark`, { waitUntil: 'networkidle' })
+await page.waitForTimeout(1000)
+await shot(page, 'dark-blog-article')
 
 await page.goto(`${base}/?theme=light`, { waitUntil: 'networkidle' })
 await page.waitForTimeout(1400)

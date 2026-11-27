@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { X } from '@lucide/vue'
-import { LEGAL_DOCUMENTS } from '~/data/legal'
+import { useContent } from '~/composables/useContent'
 import { useDialog } from '~/composables/useDialog'
 import type { LegalDocument } from '~/types/content.types'
 
@@ -19,7 +19,8 @@ onMounted(() => {
   isOpen.value = true
 })
 
-const document_ = computed(() => LEGAL_DOCUMENTS[props.docType])
+const { legal } = useContent()
+const document_ = computed(() => legal.value[props.docType])
 </script>
 
 <template>

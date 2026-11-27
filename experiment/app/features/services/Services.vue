@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ArrowRight, ArrowUpRight, BadgeCheck } from '@lucide/vue'
-import { SERVICES } from '~/data/content'
+import { useContent } from '~/composables/useContent'
 
 defineEmits<{ quote: [service?: string] }>()
+
+const { services: SERVICES } = useContent()
 
 const certifications = [
   'Fluke Networks',

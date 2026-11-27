@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ArrowDown, ArrowRight, Server, ShieldCheck, Sparkles, TrendingUp } from '@lucide/vue'
+import { useHeroVisibility } from '~/composables/useHeroVisibility'
 import type { Theme } from '~/types/content.types'
 
 defineProps<{ theme: Theme }>()
@@ -9,33 +10,7 @@ const sectionRef = shallowRef<HTMLElement | null>(null)
 const setSection = (el: unknown) => {
   sectionRef.value = el as HTMLElement | null
 }
-const showMobileActions = ref(false)
-let observer: IntersectionObserver | undefined
-let mobileViewport: MediaQueryList | undefined
-let heroIsVisible = false
-let visibilityUpdate: (() => void) | undefined
-
-onMounted(() => {
-  const section = sectionRef.value
-  if (!section) return
-  mobileViewport = window.matchMedia('(max-width: 1023px)')
-  visibilityUpdate = () => {
-    showMobileActions.value = Boolean(mobileViewport?.matches && heroIsVisible)
-  }
-  observer = new IntersectionObserver(([entry]) => {
-    if (!entry) return
-    heroIsVisible = entry.isIntersecting
-    visibilityUpdate?.()
-  })
-  observer.observe(section)
-  mobileViewport.addEventListener('change', visibilityUpdate)
-})
-
-onBeforeUnmount(() => {
-  observer?.disconnect()
-  if (mobileViewport && visibilityUpdate)
-    mobileViewport.removeEventListener('change', visibilityUpdate)
-})
+const { showMobileActions } = useHeroVisibility(sectionRef)
 </script>
 
 <template>

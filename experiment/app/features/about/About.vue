@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ArrowUpRight, ChevronLeft, ChevronRight, X } from '@lucide/vue'
-import { CAPABILITIES, PROCESS } from '~/data/content'
+import { useContent } from '~/composables/useContent'
 import { useDialog } from '~/composables/useDialog'
+
+const { site, capabilities: CAPABILITIES } = useContent()
+const PROCESS = computed(() => site.value.process)
 
 const processSummaries = [
   'Revisamos la infraestructura y los requerimientos en campo.',
@@ -39,9 +42,11 @@ const closeStageButton = shallowRef<HTMLButtonElement | null>(null)
 const setCloseStageButton = (el: unknown) => {
   closeStageButton.value = el as HTMLButtonElement | null
 }
-const activeCapability = computed(() => CAPABILITIES[activeSlide.value] ?? CAPABILITIES[0]!)
+const activeCapability = computed(
+  () => CAPABILITIES.value[activeSlide.value] ?? CAPABILITIES.value[0]!,
+)
 const currentStage = computed(() =>
-  selectedStage.value === null ? null : (PROCESS[selectedStage.value] ?? null),
+  selectedStage.value === null ? null : (PROCESS.value[selectedStage.value] ?? null),
 )
 const stageDetails = computed(() =>
   currentStage.value ? (processDetails[currentStage.value.step] ?? []) : [],
@@ -54,14 +59,15 @@ const close = () => {
 useDialog(stageDialogOpen, close, closeStageButton)
 
 const changeSlide = (direction: number) => {
-  activeSlide.value = (activeSlide.value + direction + CAPABILITIES.length) % CAPABILITIES.length
+  activeSlide.value =
+    (activeSlide.value + direction + CAPABILITIES.value.length) % CAPABILITIES.value.length
 }
 const previousStage = () => {
   if (selectedStage.value !== null) selectedStage.value = Math.max(0, selectedStage.value - 1)
 }
 const nextStage = () => {
   if (selectedStage.value !== null)
-    selectedStage.value = Math.min(PROCESS.length - 1, selectedStage.value + 1)
+    selectedStage.value = Math.min(PROCESS.value.length - 1, selectedStage.value + 1)
 }
 </script>
 
