@@ -85,7 +85,8 @@ apps/web/
 │   ├── assets/css/tailwind.css # Tailwind v4 sin preflight
 │   ├── utils/                # logger centralizado
 │   └── data/                 # JSON estático de contenido
-├── public/                   # imágenes, fuentes, robots.txt, sitemap.xml
+├── public/                   # imágenes y fuentes
+├── server/                   # rutas runtime de sitemap.xml y robots.txt
 ├── nuxt.config.ts            # proxy /api/** y runtimeConfig público
 └── Dockerfile                # build → .output/server/index.mjs
 
@@ -157,7 +158,7 @@ Preparación inicial, certificados, arranque, verificación y rollback están en
 
 ```bash
 cp .env.example .env
-# rellenar SMTP y dominio, y reemplazar tu-dominio.com en nginx/sitemap/robots
+# rellenar SMTP y dominio, y reemplazar tu-dominio.com en nginx
 pnpm deploy:up
 curl https://tu-dominio.com/health
 ```
@@ -170,8 +171,9 @@ Se probó `typescript@7.0.2` de forma aislada y se descartó: `vue-tsc@3.3.14` i
 
 ## Estado del plan
 
-- Fases 0–10 del workspace y Etapa 1 de `experiment/` ejecutadas y verificadas.
-- Checks verdes: `format:check`, `typecheck`, `lint`, `test` (17/17), `build`, `audit --audit-level moderate` y `docker compose config --quiet`.
-- Demo sin errores de consola y con paridad visual contra `qa/baseline/` (solo difiere el canvas WebGL animado).
-- Pendiente fuera del repo: dominio productivo, rotar la credencial expuesta en el historial y aprobación visual definitiva antes de mover piezas a `apps/web`.
+- Fases 0–10 del workspace, Etapa 1 de `experiment/` y Steps 2–4 ejecutados y verificados.
+- Step 5 SEO implementado: `sitemap.xml` y `robots.txt` se generan en runtime desde `NUXT_PUBLIC_SITE_URL`; canonical y `og:url` usan la misma variable.
+- Checks verdes: `format:check`, `typecheck`, `lint`, `test` (29/29), `build`, `audit --audit-level moderate` y `docker compose config --quiet`.
+- Demo sin errores de consola; `qa/baseline-v2/` es el nuevo golden tras el enlace “Ver más” → `/blog` y `qa/comparison.html` muestra la comparación contra `qa/baseline/`.
+- Pendiente fuera del repo: dominio productivo y rotar la credencial expuesta en el historial. Docker/PM2 sigue en evaluación; no se cambió el deploy.
 - `demo/` no se tocó ni se incluye en el deploy.

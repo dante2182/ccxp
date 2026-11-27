@@ -28,13 +28,14 @@ Desde la raíz del repo:
 cp .env.example .env
 ```
 
-Rellena en `.env` los valores SMTP reales y `NUXT_PUBLIC_SITE_URL=https://tu-dominio.com`. `NUXT_PUBLIC_SITE_URL` se usa en runtime para `canonical` y `og:url` de cada ruta; **no** reescribe los archivos estáticos.
+Rellena en `.env` los valores SMTP reales y `NUXT_PUBLIC_SITE_URL=https://tu-dominio.com`. `NUXT_PUBLIC_SITE_URL` se usa en runtime para `canonical` y `og:url` de cada ruta, y para generar `sitemap.xml` y `robots.txt`; ya no hay archivos estáticos que editar.
 
 Reemplaza `tu-dominio.com` por el dominio real en:
 
 - `deploy/nginx/ccip.conf`
-- `apps/web/public/sitemap.xml`
-- `apps/web/public/robots.txt`
+- los comandos de certbot de esta guía
+
+El modo de deploy (Docker Compose o PM2) sigue en evaluación; esta guía documenta Compose sin cambiar esa decisión.
 
 > `NUXT_API_TARGET` se lee al compilar `apps/web`, no al arrancar. Compose ya pasa `NUXT_API_TARGET=http://api:3001` como build arg al Dockerfile de la web.
 

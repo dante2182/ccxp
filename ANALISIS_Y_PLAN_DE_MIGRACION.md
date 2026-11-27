@@ -1,7 +1,7 @@
 # Auditoría, plan de modernización y arquitectura objetivo — CCIP
 
 > **Fecha del análisis:** 2026-11-27  
-> **Estado:** plan ejecutado por fases 0–10 el 2026-11-27; Etapa 1 de `experiment/` (demo visual → Nuxt 4) cerrada el 2026-11-27. Verificación automatizada en verde; historial de Git **no** reescrito.  
+> **Estado:** plan ejecutado por fases 0–10 el 2026-11-27; Etapa 1 de `experiment/` (demo visual → Nuxt 4) cerrada el 2026-11-27; Steps 2–4 y Step 5 SEO cerrados el 2026-11-27. Verificación automatizada en verde; historial de Git **no** reescrito. Docker/PM2 queda en evaluación.
 > **Uso:** este archivo es la fuente de verdad para aprobar y ejecutar la migración por fases.
 
 ---
@@ -15,7 +15,8 @@
 - **Verificación verde:** `pnpm format:check`, `pnpm typecheck`, `pnpm lint`, `pnpm test`, `pnpm build`, `pnpm audit --audit-level moderate` y `docker compose config`.
 - **Smoke test:** `/`, `/proyectos`, `/proyectos/1`, `/servicios/redes-telematica`, `/api/ubigeo/departamentos` y `/health` responden 200; `POST /api/contacto` conserva el contrato de error HTTP 200.
 - **Comparación visual:** `/proyectos`, `/proyectos/1` y `/servicios/redes-telematica` son idénticos píxel a píxel. En `/` las dimensiones y estructura coinciden; las diferencias localizadas corresponden al video en autoplay y a las marcas animadas, no a cambios de maquetación.
-- **Pendiente externo:** confirmar dominio productivo en `NUXT_PUBLIC_SITE_URL`, `sitemap.xml`, `robots.txt` y Nginx; rotar la credencial expuesta en el historial; aprobación visual del usuario. La optimización opcional de assets no se aplicó (requiere aprobación).
+- **Step 5 SEO aplicado:** `sitemap.xml` y `robots.txt` se generan en runtime desde `NUXT_PUBLIC_SITE_URL`, con las mismas URLs canónicas y `og:url` de cada ruta.
+- **Pendiente externo:** confirmar dominio productivo en `NUXT_PUBLIC_SITE_URL` y Nginx; rotar la credencial expuesta en el historial. Docker/PM2 sigue en evaluación. La optimización opcional de assets no se aplicó (requiere aprobación).
 
 ---
 
@@ -680,7 +681,7 @@ pnpm audit
    - caché y compresión para assets;
    - `limit_req` en `/api/contacto`.
 5. CORS: mismo origen por defecto; si se requiere otro origen, allow-list desde `CORS_ORIGINS`, sin `*`.
-6. Actualizar `sitemap.xml` y `robots.txt` al dominio confirmado.
+6. Generar `sitemap.xml` y `robots.txt` en runtime desde `NUXT_PUBLIC_SITE_URL` (implementado en Step 5 SEO).
 7. Solo si se aprobó: reescribir historial para eliminar el secreto y coordinar force push.
 
 **Gate:** `grep` del repo no encuentra credenciales; los endpoints responden correctamente a través del proxy.
